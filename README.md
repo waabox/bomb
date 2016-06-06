@@ -24,3 +24,8 @@ In this example, you will create a simple java.lang.Object and then, we'll bomb 
   }
 ```
 Once we execute this program, a org.waabox.bomb.BombException will be raised! :D
+
+You will find a better example in: https://github.com/waabox/bomb/blob/master/src/test/java/org/waabox/bomb/BombTest.java
+
+
+happy coding!
