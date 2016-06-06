@@ -18,6 +18,7 @@ In this example, you will create a simple java.lang.Object and then, we'll bomb 
       Bomb<Object> bomb = new Bomb<Object>(new Object());
       bomb.detonator("hash");
       Object bombed = bomb.get();
+      // ok, lets bomb it! Hadouuuken!
       bombed.hashCode();
     }
   
