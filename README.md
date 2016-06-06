@@ -28,5 +28,16 @@ Once we execute this program, a org.waabox.bomb.BombException will be raised! :D
 
 You will find a better example in: https://github.com/waabox/bomb/blob/master/src/test/java/org/waabox/bomb/BombTest.java
 
+<h2> Maven repository </h2>
+
+You can find bomb within the maven central =D
+
+```xml
+<dependency>
+  <groupId>org.waabox</groupId>
+  <artifactId>bomb</artifactId>
+  <version>1.0</version>
+</dependency>
+```
 
 happy coding!
