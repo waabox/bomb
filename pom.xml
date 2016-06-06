@@ -7,7 +7,7 @@
   <groupId>org.waabox</groupId>
   <artifactId>bomb</artifactId>
   <packaging>jar</packaging>
-  <version>1.0</version>
+  <version>1.1-SNAPSHOT</version>
 
   <name>Bomb</name>
 
@@ -83,7 +83,7 @@
     <developerConnection>
       scm:git:git@github.com:waabox/bomb.git
     </developerConnection>
-    <tag>bomb-1.0</tag>
+    <tag>Bomb</tag>
   </scm>
 
   <distributionManagement>
