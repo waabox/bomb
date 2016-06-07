@@ -1,6 +1,7 @@
 package org.waabox.bomb;
 
 import java.lang.reflect.Constructor;
+import java.lang.reflect.Method;
 
 import org.objenesis.ObjenesisHelper;
 
@@ -13,14 +14,20 @@ import org.objenesis.ObjenesisHelper;
  */
 public class Proxy {
 
-  /** The unsafe instance method.*/
+  /** The unsafe instance, it's Object because some JVM could not have the
+   * Unsafe class, or could have a protection, etc.
+   */
   private static Object unsafe;
 
+  /** The Unsafe method to execute.*/
+  private static final String UNSAFE_METHOD = "allocateInstance";
+
+  /** Checks the existence of the sun.misc.Unsafe and tries to initialize it.*/
   static {
     try {
       Class<?> klass = Class.forName("sun.misc.Unsafe");
 
-      if (klass.getMethod("allocateInstance", Class.class) == null) {
+      if (klass.getMethod(UNSAFE_METHOD, Class.class) == null) {
         throw new Exception("does not have the allocateInstance method, exit");
       }
 
@@ -53,8 +60,8 @@ public class Proxy {
    */
   private static Object fromUnsafe(final Class<?> proxyClass) {
     try {
-      return unsafe.getClass().getMethod("allocateInstance", Class.class)
-          .invoke(unsafe, proxyClass);
+      Method method = unsafe.getClass().getMethod(UNSAFE_METHOD, Class.class);
+      return method.invoke(unsafe, proxyClass);
     } catch (Exception e) {
       return null;
     }
